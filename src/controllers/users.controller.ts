@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import fs from "fs";
-const path = require("path");
+import path from "path";
 import testData from "../utils/data.json";
 type User = {
   id: number;
