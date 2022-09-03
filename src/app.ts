@@ -9,13 +9,15 @@ app.use(cors());
 app.use(express.json());
 
 /* here will be all the imports routes */
+import { default as userRouter } from "./routes/v1/users.route";
 
 /* here will be the all the routes */
 app.get("/", (req: Request, res: Response) => {
-          res.sendFile(path.join(__dirname, "../Views/index.html"));
+  res.sendFile(path.join(__dirname, "../Views/index.html"));
 });
 
 /* Here is the User Routes */
+app.use("/user", userRouter);
 
 // 404 response
 app.all("*", (req: Request, res: Response) => {
