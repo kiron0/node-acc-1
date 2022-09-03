@@ -4,8 +4,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.app = void 0;
+const path_1 = __importDefault(require("path"));
 const cors_1 = __importDefault(require("cors"));
-const path = require("path");
 require("dotenv/config");
 const express_1 = __importDefault(require("express"));
 const app = (0, express_1.default)();
@@ -14,11 +14,13 @@ exports.app = app;
 app.use((0, cors_1.default)());
 app.use(express_1.default.json());
 /* here will be all the imports routes */
+const users_route_1 = __importDefault(require("./routes/v1/users.route"));
 /* here will be the all the routes */
 app.get("/", (req, res) => {
-    res.sendFile(path.join(__dirname, "../Views/index.html"));
+    res.sendFile(path_1.default.join(__dirname, "../Views/index.html"));
 });
 /* Here is the User Routes */
+app.use("/user", users_route_1.default);
 // 404 response
 app.all("*", (req, res) => {
     res.status(404).send({

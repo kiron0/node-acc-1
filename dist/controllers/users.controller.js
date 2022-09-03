@@ -5,29 +5,16 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.userRouter = void 0;
 const fs_1 = __importDefault(require("fs"));
+const path_1 = __importDefault(require("path"));
 const data_json_1 = __importDefault(require("../utils/data.json"));
 const welcomeMessage = (req, res) => {
-    res.send(` <div style="color:red;font-size:25px; ">
-    <h1>Welcome to the User API</h1>
-    <p>Here are the available routes</p>
-    <ol>
-      <li><a href="/">/home</a></li>
-      <li><a href="/user/random">/user/random</a></li>
-      <li><a href="/user/1">/user/:id</a></li>
-      <li><a href="/user/all">/user/all</a></li>
-      <li><a href="/user/save">/user/save</a></li>
-      <li><a href="/user/patch">/user/patch</a></li>
-      <li><a href="/user/bulk-update">/user/bulk-update</a></li>
-      <li><a href="/user/:id">/user/delete</a></li>
-    </ol> 
-    </div>
-    `);
+    res.sendFile(path_1.default.join(__dirname, "../../Views/index.html"));
 };
 const getAllUsers = (req, res) => {
     res.json(data_json_1.default);
 };
 const getRandomUser = (req, res) => {
-    // suffle the array and send only one element as response
+    // shuffle the array and send only one element as response
     const shuffled = data_json_1.default.sort(() => 0.5 - Math.random());
     let selected = shuffled.slice(0, 1);
     res.json(selected);
