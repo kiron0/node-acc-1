@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
 import fs from "fs";
+const path = require("path");
 import testData from "../utils/data.json";
 type User = {
   id: number;
@@ -11,23 +12,7 @@ type User = {
 };
 
 const welcomeMessage = (req: Request, res: Response) => {
-  res.send(
-    ` <div style="color:red;font-size:25px; ">
-    <h1>Welcome to the User API</h1>
-    <p>Here are the available routes</p>
-    <ol>
-      <li><a href="/">/home</a></li>
-      <li><a href="/user/random">/user/random</a></li>
-      <li><a href="/user/1">/user/:id</a></li>
-      <li><a href="/user/all">/user/all</a></li>
-      <li><a href="/user/save">/user/save</a></li>
-      <li><a href="/user/patch">/user/patch</a></li>
-      <li><a href="/user/bulk-update">/user/bulk-update</a></li>
-      <li><a href="/user/:id">/user/delete</a></li>
-    </ol> 
-    </div>
-    `
-  );
+  res.sendFile(path.join(__dirname, "../../Views/index.html"));
 };
 
 const getAllUsers = (req: Request, res: Response) => {
@@ -35,7 +20,7 @@ const getAllUsers = (req: Request, res: Response) => {
 };
 
 const getRandomUser = (req: Request, res: Response) => {
-  // suffle the array and send only one element as response
+  // shuffle the array and send only one element as response
   const shuffled = testData.sort(() => 0.5 - Math.random());
   let selected = shuffled.slice(0, 1);
   res.json(selected);
