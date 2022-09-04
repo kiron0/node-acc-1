@@ -1,5 +1,5 @@
 import { app } from "./app";
-import { dbConnect } from "./utils/dbConnect";
+import { dbConnect } from "./Utils/dbConnect";
 
 const port: string | number = process.env.PORT || 5000;
 const startServer = async (): Promise<void> => {
