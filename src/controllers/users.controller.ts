@@ -69,6 +69,7 @@ const updateUser = (req: Request, res: Response) => {
       status: 404,
     });
   }
+  
   //   console.log(user);
   //   console.log(req.body);
   const updatedUser = { ...user, ...req.body };
