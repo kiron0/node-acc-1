@@ -8,7 +8,7 @@ const fs_1 = __importDefault(require("fs"));
 const path_1 = __importDefault(require("path"));
 const data_json_1 = __importDefault(require("../utils/data.json"));
 const welcomeMessage = (req, res) => {
-    res.sendFile(path_1.default.join(__dirname, "../../Views/index.html"));
+    res.sendFile(path_1.default.join(__dirname, "../../Views/User.html"));
 };
 const getAllUsers = (req, res) => {
     res.json(data_json_1.default);

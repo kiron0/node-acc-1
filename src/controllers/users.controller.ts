@@ -12,7 +12,7 @@ type User = {
 };
 
 const welcomeMessage = (req: Request, res: Response) => {
-  res.sendFile(path.join(__dirname, "../../Views/index.html"));
+  res.sendFile(path.join(__dirname, "../../Views/User.html"));
 };
 
 const getAllUsers = (req: Request, res: Response) => {
