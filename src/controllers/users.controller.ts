@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import fs from "fs";
 import path from "path";
-import testData from "../Models/data.json";
+import testData from "../models/data.json";
 type User = {
   id: number;
   name: string;

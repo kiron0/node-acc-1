@@ -14,7 +14,7 @@ exports.app = app;
 app.use((0, cors_1.default)());
 app.use(express_1.default.json());
 /* here will be all the imports routes */
-const users_route_1 = __importDefault(require("./Routes/v1/users.route"));
+const users_route_1 = __importDefault(require("./routes/v1/users.route"));
 /* here will be the all the routes */
 app.get("/", (req, res) => {
     res.sendFile(path_1.default.join(__dirname, "../Views/index.html"));

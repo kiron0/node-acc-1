@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.userRouter = void 0;
 const fs_1 = __importDefault(require("fs"));
 const path_1 = __importDefault(require("path"));
-const data_json_1 = __importDefault(require("../Models/data.json"));
+const data_json_1 = __importDefault(require("../models/data.json"));
 const welcomeMessage = (req, res) => {
     res.sendFile(path_1.default.join(__dirname, "../../Views/User.html"));
 };

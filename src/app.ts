@@ -10,7 +10,7 @@ app.use(cors());
 app.use(express.json());
 
 /* here will be all the imports routes */
-import { default as userRouter } from "./Routes/v1/users.route";
+import { default as userRouter } from "./routes/v1/users.route";
 
 /* here will be the all the routes */
 app.get("/", (req: Request, res: Response) => {
