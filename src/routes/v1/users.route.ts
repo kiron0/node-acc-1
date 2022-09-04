@@ -8,22 +8,24 @@ const router: Router = Router();
 router.get("/", userRouter.welcomeMessage);
 
 // @route  get random user user/random
-router.route("/random").get(userRouter.getRandomUser);
+router.get("/random", userRouter.getRandomUser);
 
 // @route  get all users user/all
-router.route("/all").get(userRouter.getAllUsers);
+router.get("/all", userRouter.getAllUsers);
 
 // @route  create user user/save
 router.post("/save", userRouter.saveUser);
 
 // @route  get user by id user/:id
-router
-  .route("/:id")
-  .get(userRouter.getUserById)
-  .patch(userRouter.updateUser)
-  .delete(userRouter.deleteUser);
+router.get("/:id", userRouter.getUserById);
+
+// @route  update user by id user/:id
+router.patch("/patch/:id", userRouter.updateUser);
+
+// @route  delete user by id user/:id
+router.delete("/delete/:id", userRouter.deleteUser);
 
 // @route  bulk update user user/bulk-update
-router.patch("/bulk-update/", userRouter.bulkUpdate);
+router.patch("/bulk-update", userRouter.bulkUpdate);
 
 export default router;

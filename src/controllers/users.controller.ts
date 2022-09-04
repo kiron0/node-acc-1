@@ -107,7 +107,7 @@ const deleteUser = (req: Request, res: Response) => {
 
 const bulkUpdate = (req: Request, res: Response) => {
   const { users } = req.body;
-  console.log(users);
+  // console.log(users);
   //   console.log(testData);
   const updatedUsers = testData.map((user) => {
     const updatedUser = users.find((u: User) => u.id === user.id); // type assertion
